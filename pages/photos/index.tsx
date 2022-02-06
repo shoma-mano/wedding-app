@@ -70,7 +70,7 @@ const Photos: NextPage = () => {
   return (
     <Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
       <Stack gap={'50px'}>
-      {!getLoading && getData!.image.map((v) => <Image borderRadius={'5px'} key={v.url} src={v.url}></Image>)}
+      {!getLoading && getData!.image.map((v) => <Image width={'350px'} borderRadius={'5px'} key={v.url} src={v.url}></Image>)}
       </Stack>
       <form
         className={styles.form}
@@ -102,14 +102,14 @@ const Photos: NextPage = () => {
             />
           )}
 
-          {!imageSrc && < input
+          {< input
             style={{
               cursor: 'pointer',
               position: 'absolute',
               zIndex: 100,
               opacity: 0,
-              width: '400px',
-              height: '100px',
+              width: imageSrc? '0px' :'400px',
+              height: imageSrc?'0px':'100px',
             }}
             className={styles.fileinput}
             type='file'

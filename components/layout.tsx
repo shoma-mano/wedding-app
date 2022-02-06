@@ -32,12 +32,12 @@ export const Layout = ({ children }: { children: React.ReactElement }) => {
         <Text mt={'25px'} fontSize={'63px'} fontFamily={"'Euphoria Script', cursive;"}>
           Satoko & Masaki
         </Text>
-        <Image width={'60%'} borderRadius={'1px'} src={'/main.png'} />
+        <Image width={'60%'} borderRadius={'1px'} src={'/s1_img1.png'} />
         <Text mt={'15px'} fontSize={'28px'} fontFamily={"'Cutive Mono', monospace;"}>
           March 5,2022 Tokyo Suginami Church
         </Text>
         <Text mt={'5px'} fontSize={'30px'} fontFamily={"'Cutive Mono', monospace;"}>
-          45 Days To Go
+          30 Days To Go
         </Text>
         <Box mt={'50px'} display={'flex'} width={'60%'} justifyContent={'space-between'}>
           {menus.map((v) => (

@@ -1,0 +1,592 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: query_root
+    mutation: mutation_root
+    subscription: subscription_root
+}
+
+"whether this query should be cached (Hasura Cloud only)"
+directive @cached(
+    "refresh the cache entry"
+    refresh: Boolean! = false,
+    "measured in seconds"
+    ttl: Int! = 60
+) on QUERY
+
+"columns and relationships of \"image\""
+type image {
+    id: Int!
+    url: String!
+}
+
+"aggregated selection of \"image\""
+type image_aggregate {
+    aggregate: image_aggregate_fields
+    nodes: [image!]!
+}
+
+"aggregate fields of \"image\""
+type image_aggregate_fields {
+    avg: image_avg_fields
+    count(columns: [image_select_column!], distinct: Boolean): Int!
+    max: image_max_fields
+    min: image_min_fields
+    stddev: image_stddev_fields
+    stddev_pop: image_stddev_pop_fields
+    stddev_samp: image_stddev_samp_fields
+    sum: image_sum_fields
+    var_pop: image_var_pop_fields
+    var_samp: image_var_samp_fields
+    variance: image_variance_fields
+}
+
+"aggregate avg on columns"
+type image_avg_fields {
+    id: Float
+}
+
+"aggregate max on columns"
+type image_max_fields {
+    id: Int
+    url: String
+}
+
+"aggregate min on columns"
+type image_min_fields {
+    id: Int
+    url: String
+}
+
+"response of any mutation on the table \"image\""
+type image_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [image!]!
+}
+
+"aggregate stddev on columns"
+type image_stddev_fields {
+    id: Float
+}
+
+"aggregate stddev_pop on columns"
+type image_stddev_pop_fields {
+    id: Float
+}
+
+"aggregate stddev_samp on columns"
+type image_stddev_samp_fields {
+    id: Float
+}
+
+"aggregate sum on columns"
+type image_sum_fields {
+    id: Int
+}
+
+"aggregate var_pop on columns"
+type image_var_pop_fields {
+    id: Float
+}
+
+"aggregate var_samp on columns"
+type image_var_samp_fields {
+    id: Float
+}
+
+"aggregate variance on columns"
+type image_variance_fields {
+    id: Float
+}
+
+"columns and relationships of \"message\""
+type message {
+    id: Int!
+    message: String!
+    name: String
+}
+
+"aggregated selection of \"message\""
+type message_aggregate {
+    aggregate: message_aggregate_fields
+    nodes: [message!]!
+}
+
+"aggregate fields of \"message\""
+type message_aggregate_fields {
+    avg: message_avg_fields
+    count(columns: [message_select_column!], distinct: Boolean): Int!
+    max: message_max_fields
+    min: message_min_fields
+    stddev: message_stddev_fields
+    stddev_pop: message_stddev_pop_fields
+    stddev_samp: message_stddev_samp_fields
+    sum: message_sum_fields
+    var_pop: message_var_pop_fields
+    var_samp: message_var_samp_fields
+    variance: message_variance_fields
+}
+
+"aggregate avg on columns"
+type message_avg_fields {
+    id: Float
+}
+
+"aggregate max on columns"
+type message_max_fields {
+    id: Int
+    message: String
+    name: String
+}
+
+"aggregate min on columns"
+type message_min_fields {
+    id: Int
+    message: String
+    name: String
+}
+
+"response of any mutation on the table \"message\""
+type message_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [message!]!
+}
+
+"aggregate stddev on columns"
+type message_stddev_fields {
+    id: Float
+}
+
+"aggregate stddev_pop on columns"
+type message_stddev_pop_fields {
+    id: Float
+}
+
+"aggregate stddev_samp on columns"
+type message_stddev_samp_fields {
+    id: Float
+}
+
+"aggregate sum on columns"
+type message_sum_fields {
+    id: Int
+}
+
+"aggregate var_pop on columns"
+type message_var_pop_fields {
+    id: Float
+}
+
+"aggregate var_samp on columns"
+type message_var_samp_fields {
+    id: Float
+}
+
+"aggregate variance on columns"
+type message_variance_fields {
+    id: Float
+}
+
+"mutation root"
+type mutation_root {
+    "delete data from the table: \"image\""
+    delete_image(
+        "filter the rows which have to be deleted"
+        where: image_bool_exp!
+    ): image_mutation_response
+    "delete single row from the table: \"image\""
+    delete_image_by_pk(id: Int!): image
+    "delete data from the table: \"message\""
+    delete_message(
+        "filter the rows which have to be deleted"
+        where: message_bool_exp!
+    ): message_mutation_response
+    "delete single row from the table: \"message\""
+    delete_message_by_pk(id: Int!): message
+    "insert data into the table: \"image\""
+    insert_image(
+        "the rows to be inserted"
+        objects: [image_insert_input!]!,
+        "on conflict condition"
+        on_conflict: image_on_conflict
+    ): image_mutation_response
+    "insert a single row into the table: \"image\""
+    insert_image_one(
+        "the row to be inserted"
+        object: image_insert_input!,
+        "on conflict condition"
+        on_conflict: image_on_conflict
+    ): image
+    "insert data into the table: \"message\""
+    insert_message(
+        "the rows to be inserted"
+        objects: [message_insert_input!]!,
+        "on conflict condition"
+        on_conflict: message_on_conflict
+    ): message_mutation_response
+    "insert a single row into the table: \"message\""
+    insert_message_one(
+        "the row to be inserted"
+        object: message_insert_input!,
+        "on conflict condition"
+        on_conflict: message_on_conflict
+    ): message
+    "update data of the table: \"image\""
+    update_image(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: image_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: image_set_input,
+        "filter the rows which have to be updated"
+        where: image_bool_exp!
+    ): image_mutation_response
+    "update single row of the table: \"image\""
+    update_image_by_pk(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: image_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: image_set_input,
+        pk_columns: image_pk_columns_input!
+    ): image
+    "update data of the table: \"message\""
+    update_message(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: message_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: message_set_input,
+        "filter the rows which have to be updated"
+        where: message_bool_exp!
+    ): message_mutation_response
+    "update single row of the table: \"message\""
+    update_message_by_pk(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: message_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: message_set_input,
+        pk_columns: message_pk_columns_input!
+    ): message
+}
+
+type query_root {
+    "fetch data from the table: \"image\""
+    image(
+        "distinct select on columns"
+        distinct_on: [image_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [image_order_by!],
+        "filter the rows returned"
+        where: image_bool_exp
+    ): [image!]!
+    "fetch aggregated fields from the table: \"image\""
+    image_aggregate(
+        "distinct select on columns"
+        distinct_on: [image_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [image_order_by!],
+        "filter the rows returned"
+        where: image_bool_exp
+    ): image_aggregate!
+    "fetch data from the table: \"image\" using primary key columns"
+    image_by_pk(id: Int!): image
+    "fetch data from the table: \"message\""
+    message(
+        "distinct select on columns"
+        distinct_on: [message_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [message_order_by!],
+        "filter the rows returned"
+        where: message_bool_exp
+    ): [message!]!
+    "fetch aggregated fields from the table: \"message\""
+    message_aggregate(
+        "distinct select on columns"
+        distinct_on: [message_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [message_order_by!],
+        "filter the rows returned"
+        where: message_bool_exp
+    ): message_aggregate!
+    "fetch data from the table: \"message\" using primary key columns"
+    message_by_pk(id: Int!): message
+}
+
+type subscription_root {
+    "fetch data from the table: \"image\""
+    image(
+        "distinct select on columns"
+        distinct_on: [image_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [image_order_by!],
+        "filter the rows returned"
+        where: image_bool_exp
+    ): [image!]!
+    "fetch aggregated fields from the table: \"image\""
+    image_aggregate(
+        "distinct select on columns"
+        distinct_on: [image_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [image_order_by!],
+        "filter the rows returned"
+        where: image_bool_exp
+    ): image_aggregate!
+    "fetch data from the table: \"image\" using primary key columns"
+    image_by_pk(id: Int!): image
+    "fetch data from the table: \"message\""
+    message(
+        "distinct select on columns"
+        distinct_on: [message_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [message_order_by!],
+        "filter the rows returned"
+        where: message_bool_exp
+    ): [message!]!
+    "fetch aggregated fields from the table: \"message\""
+    message_aggregate(
+        "distinct select on columns"
+        distinct_on: [message_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [message_order_by!],
+        "filter the rows returned"
+        where: message_bool_exp
+    ): message_aggregate!
+    "fetch data from the table: \"message\" using primary key columns"
+    message_by_pk(id: Int!): message
+}
+
+"unique or primary key constraints on table \"image\""
+enum image_constraint {
+    "unique or primary key constraint"
+    image_pkey
+}
+
+"select columns of table \"image\""
+enum image_select_column {
+    "column name"
+    id
+    "column name"
+    url
+}
+
+"update columns of table \"image\""
+enum image_update_column {
+    "column name"
+    id
+    "column name"
+    url
+}
+
+"unique or primary key constraints on table \"message\""
+enum message_constraint {
+    "unique or primary key constraint"
+    message_pkey
+}
+
+"select columns of table \"message\""
+enum message_select_column {
+    "column name"
+    id
+    "column name"
+    message
+    "column name"
+    name
+}
+
+"update columns of table \"message\""
+enum message_update_column {
+    "column name"
+    id
+    "column name"
+    message
+    "column name"
+    name
+}
+
+"column ordering options"
+enum order_by {
+    "in ascending order, nulls last"
+    asc
+    "in ascending order, nulls first"
+    asc_nulls_first
+    "in ascending order, nulls last"
+    asc_nulls_last
+    "in descending order, nulls first"
+    desc
+    "in descending order, nulls first"
+    desc_nulls_first
+    "in descending order, nulls last"
+    desc_nulls_last
+}
+
+"Boolean expression to compare columns of type \"Int\". All fields are combined with logical 'AND'."
+input Int_comparison_exp {
+    _eq: Int
+    _gt: Int
+    _gte: Int
+    _in: [Int!]
+    _is_null: Boolean
+    _lt: Int
+    _lte: Int
+    _neq: Int
+    _nin: [Int!]
+}
+
+"Boolean expression to compare columns of type \"String\". All fields are combined with logical 'AND'."
+input String_comparison_exp {
+    _eq: String
+    _gt: String
+    _gte: String
+    "does the column match the given case-insensitive pattern"
+    _ilike: String
+    _in: [String!]
+    "does the column match the given POSIX regular expression, case insensitive"
+    _iregex: String
+    _is_null: Boolean
+    "does the column match the given pattern"
+    _like: String
+    _lt: String
+    _lte: String
+    _neq: String
+    "does the column NOT match the given case-insensitive pattern"
+    _nilike: String
+    _nin: [String!]
+    "does the column NOT match the given POSIX regular expression, case insensitive"
+    _niregex: String
+    "does the column NOT match the given pattern"
+    _nlike: String
+    "does the column NOT match the given POSIX regular expression, case sensitive"
+    _nregex: String
+    "does the column NOT match the given SQL regular expression"
+    _nsimilar: String
+    "does the column match the given POSIX regular expression, case sensitive"
+    _regex: String
+    "does the column match the given SQL regular expression"
+    _similar: String
+}
+
+"Boolean expression to filter rows from the table \"image\". All fields are combined with a logical 'AND'."
+input image_bool_exp {
+    _and: [image_bool_exp!]
+    _not: image_bool_exp
+    _or: [image_bool_exp!]
+    id: Int_comparison_exp
+    url: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"image\""
+input image_inc_input {
+    id: Int
+}
+
+"input type for inserting data into table \"image\""
+input image_insert_input {
+    id: Int
+    url: String
+}
+
+"on conflict condition type for table \"image\""
+input image_on_conflict {
+    constraint: image_constraint!
+    update_columns: [image_update_column!]! = []
+    where: image_bool_exp
+}
+
+"Ordering options when selecting data from \"image\"."
+input image_order_by {
+    id: order_by
+    url: order_by
+}
+
+"primary key columns input for table: image"
+input image_pk_columns_input {
+    id: Int!
+}
+
+"input type for updating data in table \"image\""
+input image_set_input {
+    id: Int
+    url: String
+}
+
+"Boolean expression to filter rows from the table \"message\". All fields are combined with a logical 'AND'."
+input message_bool_exp {
+    _and: [message_bool_exp!]
+    _not: message_bool_exp
+    _or: [message_bool_exp!]
+    id: Int_comparison_exp
+    message: String_comparison_exp
+    name: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"message\""
+input message_inc_input {
+    id: Int
+}
+
+"input type for inserting data into table \"message\""
+input message_insert_input {
+    id: Int
+    message: String
+    name: String
+}
+
+"on conflict condition type for table \"message\""
+input message_on_conflict {
+    constraint: message_constraint!
+    update_columns: [message_update_column!]! = []
+    where: message_bool_exp
+}
+
+"Ordering options when selecting data from \"message\"."
+input message_order_by {
+    id: order_by
+    message: order_by
+    name: order_by
+}
+
+"primary key columns input for table: message"
+input message_pk_columns_input {
+    id: Int!
+}
+
+"input type for updating data in table \"message\""
+input message_set_input {
+    id: Int
+    message: String
+    name: String
+}

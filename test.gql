@@ -1,0 +1,10 @@
+
+
+
+query {
+message{
+id
+name
+message
+}
+}

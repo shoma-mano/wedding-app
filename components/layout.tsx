@@ -8,6 +8,7 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
     const router = useRouter();
     const date =new Date('2022-03-05');
     const nowDate = new Date();
+    // @ts-ignore
     const day = date-nowDate
     const weddingDay=parseInt(String(day / 1000 / 60 / 60 / 24))
     const [mounted, setMounted] = useState(false)
@@ -111,7 +112,7 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
                     Wedding Day
                 </Text>
                 <Text mt={'5px'} fontFamily={"'Cutive Mono', monospace;"} fontSize={'25px'}>
-                    MARCH 5,2022 test
+                    MARCH 5,2022
                 </Text>
                 <Text
                     color={'#3C2014'}

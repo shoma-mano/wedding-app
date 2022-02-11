@@ -53,7 +53,7 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
     return (
         <>
             <Head>
-                <title>Image Uploader</title>
+                <title>正基さん、さとちゃん、結婚おめでとう!</title>
                 <meta name='description' content='Upload your image to Cloudinary!'/>
                 <link rel='icon' href='/favicon.ico'/>
             </Head>

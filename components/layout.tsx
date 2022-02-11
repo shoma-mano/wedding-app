@@ -111,7 +111,7 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
                     Wedding Day
                 </Text>
                 <Text mt={'5px'} fontFamily={"'Cutive Mono', monospace;"} fontSize={'25px'}>
-                    MARCH 5,2022
+                    MARCH 5,2022 test
                 </Text>
                 <Text
                     color={'#3C2014'}

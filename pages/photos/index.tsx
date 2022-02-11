@@ -160,7 +160,7 @@ const Photos: NextPage = () => {
 
                 {imageSrc && !uploadData && (
                     <Box shadow={'sm'} mt={'20px'} fontWeight={'700'} borderRadius={'10px'} justifyContent={'center'}
-                         backgroundColor={'white'} witdh={'80px'} mx={'auto'}>
+                         backgroundColor={'white'} width={'80px'} mx={'auto'}>
                         <button style={{
                             height: '35px',
                             margin: 'auto',

@@ -63,8 +63,8 @@ const Message: NextPage = () => {
         alignItems={'center'}
         width={'100%'}
         pt={'20px'}
-        mt={'20px'}
-        gap={'20px'}
+        mt={'40px'}
+        gap={'55px'}
       >
         {!getLoading &&
           getData!.message.map((v) => (
@@ -76,7 +76,7 @@ const Message: NextPage = () => {
                 {v.name}より
               </Text>
             </Box>
-          ))}
+          )).reverse()}
       </Stack>
       <Input
         width={'80%'}

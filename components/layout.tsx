@@ -70,7 +70,7 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
                     }
                 />
                 <Text mt={'25px'} fontSize={'63px'} fontFamily={"'Euphoria Script', cursive;"}>
-                    Satoko & Masaki
+                    Masaki　& Satoko
                 </Text>
                 <Image width={'60%'} borderRadius={'1px'} src={'/main.png'}/>
                 {mounted && breakpoint}
@@ -123,7 +123,7 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
                     fontFamily={"'Euphoria Script', cursive;"}
                     fontSize={'55px'}
                 >
-                    S&M
+                    M&S
                 </Text>
                 <Text
                     color={'#3C2014'}

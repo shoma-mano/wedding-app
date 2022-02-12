@@ -69,8 +69,8 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
                         'https://media-api.xogrp.com/images/3f93e2fc-fe94-4940-9bfe-7923d13e6a5c~rt_auto-rs_1024.h?ordering=explicit'
                     }
                 />
-                <Text mt={'25px'} fontSize={'63px'} fontFamily={"'Euphoria Script', cursive;"}>
-                    Masaki　& Satoko
+                <Text mt={'25px'} fontSize={['55px','63px']} fontFamily={"'Euphoria Script', cursive;"}>
+                    Masaki & Satoko
                 </Text>
                 <Image width={'60%'} borderRadius={'1px'} src={'/main.png'}/>
                 {mounted && breakpoint}

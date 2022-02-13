@@ -58,6 +58,8 @@ const Message: NextPage = () => {
   };
 
 
+
+
   return (
     <>
       <Text textAlign={'center'} fontFamily={'monospace'} fontSize={'24px'}>

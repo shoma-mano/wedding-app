@@ -5,6 +5,7 @@ import { Box, Image, Text, Icon, Stack } from '@chakra-ui/react';
 import { useState } from 'react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { gql, useMutation, useQuery } from '@apollo/client';
+import { Rings } from "react-loader-spinner";
 
 const Photos: NextPage = () => {
     const [imageSrc, setImageSrc] = useState<any>();
@@ -69,6 +70,7 @@ const Photos: NextPage = () => {
 
     return (
         <Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
+            {getLoading && <Rings ariaLabel="loading-indicator" />}
             <Stack gap={'50px'}>
                 {!getLoading && getData!.image.map((v) =>
                     <Image width={'350px'} borderRadius={'5px'} key={v.url}

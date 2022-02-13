@@ -6,10 +6,14 @@ import { useState } from 'react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { Rings } from "react-loader-spinner";
+import { addMessageAtom } from "../../jotai/message.atom";
+import { useAtom } from "jotai";
 
 const Photos: NextPage = () => {
     const [imageSrc, setImageSrc] = useState<any>();
     const [uploadData, setUploadData] = useState<any>();
+    const [sendingState, setSendingState] = useState(false);
+    const [, addMessage] = useAtom(addMessageAtom)
 
     const GET_URL = gql`
         query get_url {
@@ -49,6 +53,7 @@ const Photos: NextPage = () => {
     };
 
     const handleOnSubmit = async (event: any) => {
+        setSendingState(true)
         event.preventDefault();
         const form = event.currentTarget;
         const fileInput: any = Array.from(form.elements).find(({name}: any) => name === 'file');
@@ -65,12 +70,17 @@ const Photos: NextPage = () => {
             body: formData,
         }).then((r) => r.json());
 
-        saveUrl({variables: {url: data.secure_url}}).then(() => setImageSrc(''));
+        saveUrl({variables: {url: data.secure_url}}).then(() => {
+            setImageSrc('')
+            setSendingState(false)
+            addMessage('写真を送信しました!🌃')
+        });
     };
+
 
     return (
         <Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
-            {getLoading && <Rings ariaLabel="loading-indicator" />}
+            {getLoading && <Rings ariaLabel="loading-indicator"/>}
             <Stack gap={'50px'}>
                 {!getLoading && getData!.image.map((v) =>
                     <Image width={'350px'} borderRadius={'5px'} key={v.url}
@@ -161,18 +171,24 @@ const Photos: NextPage = () => {
                 </Box>
 
                 {imageSrc && !uploadData && (
-                    <Box shadow={'sm'} mt={'20px'} fontWeight={'700'} borderRadius={'10px'} justifyContent={'center'}
-                         backgroundColor={'white'} width={'150px'} mx={'auto'}>
-                        <button style={{
-                            height: '35px',
-                            margin: 'auto',
-                            width:'100%',
-                            textAlign: 'center',
-                            display: "block",
-                            fontFamily: 'monospace'
-                        }}>写真を共有する
-                        </button>
-                    </Box>
+                    <>
+                        <Box shadow={'sm'} mt={'20px'} fontWeight={'700'} borderRadius={'10px'}
+                             justifyContent={'center'}
+                             backgroundColor={'white'} width={'150px'} mx={'auto'}>
+                            <button disabled={sendingState} style={{
+                                height: '35px',
+                                margin: 'auto',
+                                width: '100%',
+                                textAlign: 'center',
+                                display: "block",
+                                fontFamily: 'monospace'
+                            }}>写真を共有する
+                            </button>
+                        </Box>
+                        <Box mx={'auto'} width={'150px'} display={'flex'} justifyContent={'center'}>
+                            <Rings ariaLabel="loading-indicator"/>
+                        </Box>
+                    </>
                 )}
 
                 {uploadData && (

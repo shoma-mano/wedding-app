@@ -79,7 +79,7 @@ const Message: NextPage = () => {
                 {v.message}
               </Text>
               <Text fontWeight={'bold'} mt={'20px'} textAlign={'end'}>
-                {v.name}より
+                {v.name}{!v.name.includes('より') && 'より'}
               </Text>
             </Box>
           )).reverse()}

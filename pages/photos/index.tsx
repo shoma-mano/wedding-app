@@ -186,7 +186,7 @@ const Photos: NextPage = () => {
                             </button>
                         </Box>
                         <Box mx={'auto'} width={'150px'} display={'flex'} justifyContent={'center'}>
-                            <Rings ariaLabel="loading-indicator"/>
+                            {sendingState && <Rings ariaLabel="loading-indicator"/>}
                         </Box>
                     </>
                 )}

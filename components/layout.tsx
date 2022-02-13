@@ -6,7 +6,7 @@ import { addMessageAtom } from '../jotai/message.atom';
 import { useAtom } from 'jotai';
 
 export const Layout = ({ children }: { children: React.ReactElement }) => {
-  const menus = ['MESSAGE', 'PHOTOS'];
+  const menus = ['HOME','MESSAGE', 'PHOTOS'];
   const router = useRouter();
 
   //開催日計算
@@ -128,7 +128,7 @@ export const Layout = ({ children }: { children: React.ReactElement }) => {
         <Text mt={'5px'} fontSize={'30px'} fontFamily={"'Cutive Mono', monospace;"}>
           {weddingDay} Days To Go
         </Text>
-        <Box mt={'50px'} display={'flex'} width={'50%'} justifyContent={'space-evenly'}>
+        <Box mt={'50px'} display={'flex'} width={'60%'} justifyContent={'space-evenly'}>
           {menus.map((v) => (
             <Box
               onClick={() => movePage(v)}
@@ -160,39 +160,12 @@ export const Layout = ({ children }: { children: React.ReactElement }) => {
         >
           {children}
         </Box>
-        <Text mt={'105px'} fontSize={'40px'} fontFamily={"'Shadows Into Light', cursive;"}>
-          Wedding Day
-        </Text>
-        <Text mt={'5px'} fontFamily={"'Cutive Mono', monospace;"} fontSize={'25px'}>
-          MARCH 5,2022
-        </Text>
-        <Text
-          color={'#3C2014'}
-          width={'160px'}
-          textAlign={'center'}
-          borderBottom={'solid 1px'}
-          mt={'90px'}
-          fontFamily={"'Euphoria Script', cursive;"}
-          fontSize={'55px'}
-        >
-          M&S
-        </Text>
-        <Text
-          color={'#3C2014'}
-          mt={'10px'}
-          fontFamily={"'Cutive Mono', monospace;"}
-          fontSize={'20px'}
-          fontWeight={'bold'}
-        >
-          2022.3.5
-        </Text>
-
-        <Image
-          mt={'80px'}
-          src={
-            'https://media-api.xogrp.com/images/f40efb40-4576-4cf3-9e82-58ead3c4ac55~rt_auto-rs_1536.h?ordering=explicit'
-          }
-        />
+          <Image
+              mt={'80px'}
+              src={
+                  'https://media-api.xogrp.com/images/f40efb40-4576-4cf3-9e82-58ead3c4ac55~rt_auto-rs_1536.h?ordering=explicit'
+              }
+          />
       </Box>
     </>
   );

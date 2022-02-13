@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css';
 import { Box, Image, Text, Input, Stack, Button } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import { gql, useMutation, useQuery } from '@apollo/client';
+import { Rings } from "react-loader-spinner";
 
 const Message: NextPage = () => {
   interface MESSAGE {
@@ -62,6 +63,7 @@ const Message: NextPage = () => {
       <Text textAlign={'center'} fontFamily={'monospace'} fontSize={'24px'}>
         〜みんなからの二人へのメッセージ〜
       </Text>
+      {getLoading && <Rings ariaLabel="loading-indicator" />}
       <Stack
         justifyContent={'center'}
         alignItems={'center'}

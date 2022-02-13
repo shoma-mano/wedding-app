@@ -5,6 +5,9 @@ import { Box, Image, Text, Input, Stack, Button } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { Rings } from "react-loader-spinner";
+import { addMessageAtom } from "../../jotai/message.atom";
+import { useAtom } from "jotai";
+
 
 const Message: NextPage = () => {
   interface MESSAGE {
@@ -35,6 +38,8 @@ const Message: NextPage = () => {
     }
   `;
 
+   const [,addNotification]=useAtom(addMessageAtom)
+
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [sending,setSending] = useState(false)
@@ -49,16 +54,18 @@ const Message: NextPage = () => {
     error: getError,
   } = useQuery<{ message: MESSAGE[] }>(GET_MESSAGE);
 
+
+
   const sendMessage = () => {
     setSending(true);
     addMessage({ variables: { message, name } }).then((result) => {
-      console.log(result.data);
+      addNotification('メッセージを送信しました!💌')
       setSending(false);
     });
   };
 
 
-
+ // useEffect(()=>addNotification('メッセージを送信しました!💌'),[])
 
   return (
     <>

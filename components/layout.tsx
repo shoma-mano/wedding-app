@@ -6,11 +6,18 @@ import { useEffect, useState } from "react";
 export const Layout = ({children}: { children: React.ReactElement }) => {
     const menus = ['MESSAGE', 'PHOTOS'];
     const router = useRouter();
+
+    //開催日計算
     const date =new Date('2022-03-05');
     const nowDate = new Date();
     // @ts-ignore
     const day = date-nowDate
     const weddingDay=parseInt(String(day / 1000 / 60 / 60 / 24))
+
+    //現在のページに合わせてメニューの下に線を表示
+    console.log(router.pathname)
+
+
     const [mounted, setMounted] = useState(false)
     const movePage = (page: string) => {
         if (page === 'HOME') router.push('/', undefined, {scroll: false});
@@ -91,6 +98,7 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
                                 display={'inline-block'}
                                 fontFamily={"'Shadows Into Light', cursive;"}
                                 _hover={{borderBottom: '2px solid black'}}
+                                borderBottom={router.pathname.includes(v.toLowerCase()) ? '2px solid black':''}
                                 transition={'border 0.5s, border-width 0.01s'}
                             >
                                 {v}

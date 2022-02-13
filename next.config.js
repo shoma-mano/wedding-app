@@ -11,7 +11,7 @@ const nextConfig = {
         destination: '/message', // リダイレクト先のURL
         permanent: true, // 永続的なリダイレクトかのフラグ
       },
-    ]
+    ];
   },
 };
 

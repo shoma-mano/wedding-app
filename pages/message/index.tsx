@@ -4,10 +4,9 @@ import styles from '../styles/Home.module.css';
 import { Box, Image, Text, Input, Stack, Button } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import { gql, useMutation, useQuery } from '@apollo/client';
-import { Rings } from "react-loader-spinner";
-import { addMessageAtom } from "../../jotai/message.atom";
-import { useAtom } from "jotai";
-
+import { Rings } from 'react-loader-spinner';
+import { addMessageAtom } from '../../jotai/message.atom';
+import { useAtom } from 'jotai';
 
 const Message: NextPage = () => {
   interface MESSAGE {
@@ -38,11 +37,11 @@ const Message: NextPage = () => {
     }
   `;
 
-   const [,addNotification]=useAtom(addMessageAtom)
+  const [, addNotification] = useAtom(addMessageAtom);
 
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
-  const [sending,setSending] = useState(false)
+  const [sending, setSending] = useState(false);
 
   const [addMessage, { data, loading, error }] = useMutation(ADD_Message, {
     refetchQueries: [GET_MESSAGE, 'getMessage'],
@@ -54,25 +53,22 @@ const Message: NextPage = () => {
     error: getError,
   } = useQuery<{ message: MESSAGE[] }>(GET_MESSAGE);
 
-
-
   const sendMessage = () => {
     setSending(true);
     addMessage({ variables: { message, name } }).then((result) => {
-      addNotification('メッセージを送信しました!💌')
+      addNotification('メッセージを送信しました!💌');
       setSending(false);
     });
   };
 
-
- // useEffect(()=>addNotification('メッセージを送信しました!💌'),[])
+  // useEffect(()=>addNotification('メッセージを送信しました!💌'),[])
 
   return (
     <>
       <Text textAlign={'center'} fontFamily={'monospace'} fontSize={'24px'}>
         〜みんなからの二人へのメッセージ〜
       </Text>
-      {getLoading && <Rings ariaLabel="loading-indicator" />}
+      {getLoading && <Rings ariaLabel='loading-indicator' />}
       <Stack
         justifyContent={'center'}
         alignItems={'center'}
@@ -82,16 +78,19 @@ const Message: NextPage = () => {
         gap={'55px'}
       >
         {!getLoading &&
-          getData!.message.map((v) => (
-            <Box width={'90%'} key={v.message}>
-              <Text width={'100%'} fontSize={'18px'} fontFamily={'serif'}>
-                {v.message}
-              </Text>
-              <Text fontWeight={'bold'} mt={'20px'} textAlign={'end'}>
-                {v.name}{!v.name.includes('より') && 'より'}
-              </Text>
-            </Box>
-          )).reverse()}
+          getData!.message
+            .map((v) => (
+              <Box width={'90%'} key={v.message}>
+                <Text width={'100%'} fontSize={'18px'} fontFamily={'serif'}>
+                  {v.message}
+                </Text>
+                <Text fontWeight={'bold'} mt={'20px'} textAlign={'end'}>
+                  {v.name}
+                  {!v.name.includes('より') && 'より'}
+                </Text>
+              </Box>
+            ))
+            .reverse()}
       </Stack>
       <Input
         width={'80%'}
@@ -109,7 +108,7 @@ const Message: NextPage = () => {
       <Button onClick={() => sendMessage()} mt={'20px'} disabled={sending || !(message && name)}>
         メッセージを送る
       </Button>
-        {sending && <Rings ariaLabel="loading-indicator" />}
+      {sending && <Rings ariaLabel='loading-indicator' />}
     </>
   );
 };

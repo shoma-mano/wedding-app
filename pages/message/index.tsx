@@ -36,6 +36,7 @@ const Message: NextPage = () => {
 
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
+  const [sending,setSending] = useState(false)
 
   const [addMessage, { data, loading, error }] = useMutation(ADD_Message, {
     refetchQueries: [GET_MESSAGE, 'getMessage'],
@@ -48,10 +49,13 @@ const Message: NextPage = () => {
   } = useQuery<{ message: MESSAGE[] }>(GET_MESSAGE);
 
   const sendMessage = () => {
+    setSending(true);
     addMessage({ variables: { message, name } }).then((result) => {
       console.log(result.data);
+      setSending(false);
     });
   };
+
 
   return (
     <>
@@ -91,7 +95,7 @@ const Message: NextPage = () => {
         placeholder={'二人へのメッセージ'}
       />
 
-      <Button onClick={() => sendMessage()} mt={'20px'} disabled={!(message && name)}>
+      <Button onClick={() => sendMessage()} mt={'20px'} disabled={sending || !(message && name)}>
         メッセージを送る
       </Button>
     </>

@@ -78,7 +78,7 @@ const Message: NextPage = () => {
               <Text width={'100%'} fontSize={'18px'} fontFamily={'serif'}>
                 {v.message}
               </Text>
-              <Text fontWeight={'bold'} textAlign={'end'}>
+              <Text fontWeight={'bold'} mt={'20px'} textAlign={'end'}>
                 {v.name}より
               </Text>
             </Box>

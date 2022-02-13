@@ -79,7 +79,6 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
             >
                 {1 <= messageList.length &&
                     messageList.map(obj => (
-                        <>
                             <Box key={obj.key} px={'10px'} zIndex={'100'} display={'flex'} justifyContent={'center'}
                                  alignItems={'center'}
                                  position={'fixed'} mt={'40vh'} width={'200px'} h={'20vh'} opacity={'0.5'}
@@ -90,7 +89,7 @@ export const Layout = ({children}: { children: React.ReactElement }) => {
                                       my={'auto'}
                                       fontWeight={'bold'} color={'white'}>{obj.message}</Text>))
                             </Box>
-                        </>))
+                        ))
                 }
                 <Image
                     src={

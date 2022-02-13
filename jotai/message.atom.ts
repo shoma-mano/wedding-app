@@ -2,7 +2,7 @@ import { atom, useAtom } from 'jotai'
 
 
     const messageListAtom =atom<Array<{ message: string; key: number; }>>([])
-    const keyAtom =atom(0)
+    const keyAtom =atom(100)
 
     export const addMessageAtom = atom(get=>get(messageListAtom),(get, set, _arg:string)=> {
         const messageKey = get(keyAtom);

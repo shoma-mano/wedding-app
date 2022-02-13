@@ -109,6 +109,7 @@ const Message: NextPage = () => {
       <Button onClick={() => sendMessage()} mt={'20px'} disabled={sending || !(message && name)}>
         メッセージを送る
       </Button>
+        {sending && <Rings ariaLabel="loading-indicator" />}
     </>
   );
 };

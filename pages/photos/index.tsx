@@ -65,7 +65,7 @@ const Photos: NextPage = () => {
 
     formData.append('upload_preset', 'ml_default');
 
-    const data = await fetch('https://api.cloudinary.com/v1_1/dsu2ajyhb/upload', {
+    const data = await fetch('cloudinary_url', {
       method: 'POST',
       body: formData,
     }).then((r) => r.json());

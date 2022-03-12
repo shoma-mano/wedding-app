@@ -124,9 +124,6 @@ const Message: NextPage = () => {
             >
                 2022.3.5
             </Text>
-
-
-
         </>
     );
 };

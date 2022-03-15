@@ -1,34 +1,33 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+叔母の結婚式の為の寄せ書き＆写真共有アプリを作成しました。
+フロントエンドの技術にNextJS+ChakraUIを選定しているのに加え、メッセージ投稿時や写真投稿時の通知メッセージを管理するのに状態管理ライブラリであるJotaiを使用しました。
+バックエンドの技術として、メッセージの保存にはHasuraCloudを使用し、写真の保存にはCloudinaryというサービスを使用しました。
+# 技術選定(フロントエンド)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## NextJS
+create-next-appで簡単にReactの環境を構築出来るため使用しました。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ChakraUI
+UIフレームワークには、Tailwindスタイルの高速なスタイリングが可能なChakraUIを使用しました。
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Jotai
+メッセージ投稿時や写真投稿時の通知メッセージを管理するのにJotaiというグローバル状態管理ライブラリを使用しました。
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## apolloクライアント
+バックエンドにHasuraCloudを
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+sequenceDiagram
+Alice->>John: Hello John, how are you?
+loop Healthcheck
+John->>John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+John-->>Alice: Great!
+John->>Bob: How about you?
+Bob-->>John: Jolly good!
 
-## Learn More
+# 
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -33,7 +33,7 @@ sequenceDiagram
 Client->>Cloudinary: request with File Object
 Cloudinary->>Client: return picture's metadata
 Client->>Hasura: request with picture's URL
-Hasura->>Postgresql: save picture's URL
+Hasura->>PostgreSQL: save picture's URL
 ```
 
 

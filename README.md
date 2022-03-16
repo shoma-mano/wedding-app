@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
-叔母の結婚式の為のメッセージ＆写真共有アプリを作成しました。
+叔母の結婚式の為のメッセージ＆写真共有アプリを作成しました。製作期間は約3日間です。
 https://masaki-satoko.net
 # 技術選定(フロントエンド)
 

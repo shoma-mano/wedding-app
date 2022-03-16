@@ -2,6 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 
 叔母の結婚式の為のメッセージ＆写真共有アプリを作成しました。
+https://masaki-satoko.net
 # 技術選定(フロントエンド)
 
 ## NextJS

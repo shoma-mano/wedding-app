@@ -22,7 +22,7 @@ UIフレームワークには、Tailwindスタイルの高速なスタイリン�
 # 技術選定(バックエンド)
 
 ## HasuraCloud
-DBのスキーマ定義からGraphQLのAPIを自動生成するHasuraというOSSを使用しました。
+DBのスキーマ定義からGraphQLのAPIを自動生成するHasuraCloudを使用しました。
 バックエンドのコードを書く手間が省けるだけでなく、HasuraCloudを使うとインフラの管理の必要性も無く、
 開発の高速化に貢献してくれたと思います。
 
